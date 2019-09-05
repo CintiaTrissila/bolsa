@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.bolsa.model.Conta;
 import br.com.bolsa.model.Empresa;
@@ -13,6 +14,7 @@ import br.com.bolsa.model.enums.TipoTransacao;
 import br.com.bolsa.repository.TransacaoRepository;
 import br.com.bolsa.service.TransacaoService;
 
+@Service
 public class TransacaoServiceImpl implements TransacaoService{
 
 	@Autowired

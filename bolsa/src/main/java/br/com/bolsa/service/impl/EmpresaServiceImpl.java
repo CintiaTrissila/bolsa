@@ -3,11 +3,13 @@ package br.com.bolsa.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.bolsa.model.Empresa;
 import br.com.bolsa.repository.EmpresaRepository;
 import br.com.bolsa.service.EmpresaService;
 
+@Service
 public class EmpresaServiceImpl implements EmpresaService{
 
 	@Autowired
@@ -16,7 +18,7 @@ public class EmpresaServiceImpl implements EmpresaService{
 	@Override
 	public Empresa save(Empresa empresa) {
 		Empresa emp = empresaRepository.findByNome(empresa.getNome());
-		if (emp == null) {
+		if (emp != null) {
 			return null;
 		}
 		return empresaRepository.save(empresa);

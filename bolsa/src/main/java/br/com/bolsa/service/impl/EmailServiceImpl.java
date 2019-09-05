@@ -3,6 +3,7 @@ package br.com.bolsa.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
 
 import br.com.bolsa.model.Empresa;
 import br.com.bolsa.model.Monitoramento;
@@ -10,6 +11,7 @@ import br.com.bolsa.model.Transacao;
 import br.com.bolsa.model.enums.TipoTransacao;
 import br.com.bolsa.service.EmailService;
 
+@Service
 public class EmailServiceImpl implements EmailService{
 
 	@Autowired
