@@ -15,7 +15,7 @@ public interface TransacaoService {
 	
 	void compraVendaAcoes(Integer id);
 	
-	void historicoTransacoes(Integer id);
+	String historicoTransacoes(Integer id);
 	
 	void deleteById(Integer id);
 	

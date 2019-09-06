@@ -92,34 +92,36 @@ public class TransacaoServiceImpl implements TransacaoService{
 	}
 
 	@Override
-	public void historicoTransacoes(Integer id) {
+	public String historicoTransacoes(Integer id) {
 		Conta conta = contaServiceImpl.listById(id);
 		List<Transacao> transacoes = conta.getTransacoes();
+		String retorno = "";
 		for (Transacao transacao : transacoes) {
-			System.out.println("------------------------------------------------------------");
-			System.out.println("-------------------------------------------------");
-			System.out.println("-----------------------------------");
-			System.out.println("Identificador: " + transacao.getId());
-			System.out.println("Tipo : " + transacao.getTipoTransacao());
-			System.out.println("Empresa: " + transacao.getEmpresa());
-			System.out.println("Valor: " + transacao.getValor());
-			System.out.println("Quantidade de ações: " + transacao.getQuantidadeAcoes());
-			System.out.println("Data: " + transacao.getData());
-			System.out.println("------------------------------------------------------------");
-			System.out.println("-------------------------------------------------");
-			System.out.println("------------------------------------------");
-			System.out.println("-----------------------------------");
+			retorno += "------------------------------------------------------------";
+			retorno += "-------------------------------------------------";
+			retorno += "-----------------------------------";
+			retorno += "Identificador: " + transacao.getId();
+			retorno += "Tipo : " + transacao.getTipoTransacao();
+			retorno += "Empresa: " + transacao.getEmpresa();
+			retorno += "Valor: " + transacao.getValor();
+			retorno += "Quantidade de ações: " + transacao.getQuantidadeAcoes();
+			retorno += "Data: " + transacao.getData();
+			retorno += "------------------------------------------------------------";
+			retorno += "-------------------------------------------------";
+			retorno += "------------------------------------------";
+			retorno += "-----------------------------------";
 		}
-		System.out.println("------------------------------------------------------------");
-		System.out.println("---                                                      ---");
-		System.out.println("---                                                      ---");
-		System.out.println("---    Saldo Final: " + conta.getSaldo() + "             ---");
-		System.out.println("---    Número de ações: " + conta.getNumeroAcoes() + "   ---");
-		System.out.println("---                                                      ---");
-		System.out.println("---                                                      ---");
-		System.out.println("------------------------------------------------------------");
-		System.out.println("------------------------------------------------------------");
-		System.out.println("------------------------------------------------------------");
+		retorno += "------------------------------------------------------------";
+		retorno += "---                                                      ---";
+		retorno += "---                                                      ---";
+		retorno += "---    Saldo Final: " + conta.getSaldo() + "             ---";
+		retorno += "---    Número de ações: " + conta.getNumeroAcoes() + "   ---";
+		retorno += "---                                                      ---";
+		retorno += "---                                                      ---";
+		retorno += "------------------------------------------------------------";
+		retorno += "------------------------------------------------------------";
+		retorno += "------------------------------------------------------------";
+		return retorno;
 	}
 
 	@Override

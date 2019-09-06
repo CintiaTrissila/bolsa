@@ -13,7 +13,8 @@
      
          
       <a href="${pageContext.request.contextPath}/empresa/list">Empresas</a>  
-      <a href="${pageContext.request.contextPath}/conta/list">Contas</a>  
+      <a href="${pageContext.request.contextPath}/conta/list">Contas</a> 
+      <a href="${pageContext.request.contextPath}/monitoramento/list">Monitoramentos</a>   
        
    </body>
    

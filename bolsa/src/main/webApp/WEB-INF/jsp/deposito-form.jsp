@@ -24,13 +24,12 @@
      <form:form action="depositar" cssClass="form-horizontal"
       method="put" modelAttribute="cont">
 
-      <!-- need to associate this data with customer id -->
       <form:hidden path="id" />
       
       <div class="form-group">
        <label for="saldo" class="col-md-3 control-label">Valor</label>
        <div class="col-md-9">
-        <form:input path="valor" cssClass="form-control" />
+        <form:input path="saldo" cssClass="form-control" />
        </div>
       </div>
 

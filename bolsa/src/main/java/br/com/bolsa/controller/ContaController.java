@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.bolsa.model.Conta;
 import br.com.bolsa.service.impl.ContaServiceImpl;
-import br.com.bolsa.service.impl.EmpresaServiceImpl;
 
 @Controller
 @RequestMapping("/conta")
@@ -40,7 +38,7 @@ public class ContaController {
     }
 	
 	@PostMapping("/saveConta")
-    public String saveEmpresa(@ModelAttribute("cont") Conta cont) {
+    public String saveConta(@ModelAttribute("cont") Conta cont) {
 		if (cont.getId()==null)
 			contaServiceImpl.save(cont);
 		else
@@ -66,14 +64,14 @@ public class ContaController {
     public String showFormForDeposito(@RequestParam("contaId") int theId,
         Model theModel) {
 		Conta cont = contaServiceImpl.listById(theId);
+		cont.setSaldo(0.0);
         theModel.addAttribute("cont", cont);
-        theModel.addAttribute("contaId",theId);
         return "deposito-form";
     }
     
 	@PutMapping("/depositar")
-	public String depositar(@RequestParam("contaId") int theId, @ModelAttribute("cont") Conta cont) {
-		Conta contaDeposito = contaServiceImpl.depositar(theId, cont);
+	public String depositar(@ModelAttribute("cont") Conta cont) {
+		Conta contaDeposito = contaServiceImpl.depositar(cont.getId(), cont);
 		return "redirect:/conta/list";
 	}
 

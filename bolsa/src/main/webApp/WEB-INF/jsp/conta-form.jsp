@@ -34,12 +34,14 @@
        </div>
       </div>
       </div>
-      <div class="form-group">
-       <label for="saldo" class="col-md-3 control-label">Saldo</label>
-       <div class="col-md-9">
-        <form:input path="saldo" cssClass="form-control" />
-       </div>
-      </div>
+      <c:if test="${cont.id ==null}">
+	      <div class="form-group">
+	       <label for="saldo" class="col-md-3 control-label">Saldo</label>
+	       <div class="col-md-9">
+	        <form:input path="saldo" cssClass="form-control" />
+	       </div>
+	      </div>
+      </c:if>
 
       <div class="form-group">
        <!-- Button -->

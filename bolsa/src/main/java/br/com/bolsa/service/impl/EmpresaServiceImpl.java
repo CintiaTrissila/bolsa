@@ -14,6 +14,8 @@ public class EmpresaServiceImpl implements EmpresaService{
 
 	@Autowired
 	private EmpresaRepository empresaRepository;
+	@Autowired
+	private RandomNumberImpl randomNumberImpl;
 	
 	@Override
 	public Empresa save(Empresa empresa) {
@@ -54,6 +56,14 @@ public class EmpresaServiceImpl implements EmpresaService{
 	@Override
 	public Empresa listByNome(String nome) {
 		return empresaRepository.findByNome(nome);
+	}
+	
+	public void SimuladorConexaoPreco() {
+		List<Empresa> empresas = list();
+		for(Empresa empresa : empresas) {
+			empresa.setValorAcao(randomNumberImpl.randomValorAcao());
+			empresaRepository.save(empresa);
+		}
 	}
 
 }
